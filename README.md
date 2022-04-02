@@ -1,4 +1,6 @@
-本demo对应的博客说明地址：
+本demo对应的博客说明地址：[企业微信代开发流程](https://blog.mygallop.cn/2022/04/develop/qywx-api-dev/)
+
+
 
 ### demo代码的说明
 
