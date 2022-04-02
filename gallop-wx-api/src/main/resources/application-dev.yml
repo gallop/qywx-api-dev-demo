@@ -1,0 +1,52 @@
+server:
+  port: 9096
+  servlet:
+    context-path: /qywx
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/qywx_api?useUnicode=true&characterEncoding=utf8&serverTimeZone=Asia/Shanghai
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      validationTimeout: 5000
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 3600
+    lettuce:
+      pool:
+        max-idle: 10   #最大空闲连接
+        max-active: 8   # 最大连接数
+        max-wait: -1  # 最大等待时间（使用负值表示没有限制）
+        min-idle: 0   # 连接池最小空闲连接
+      shutdown-timeout: 100 # 关闭超时时间
+
+
+qywx-dev:
+  corpId: ww11999994658e4fcd #服务商企业微信id
+  token: FLvNx6bhc99999bPKDyCLGss # 企业微信后台，开发者设置的token
+  encodingAESKey: BZan99999FObOd9KQdh94nVgOscwFwa1UdsPeyspTxs # 企业微信后台，开发者设置的EncodingAESKey
+  clientCorpId: ww28b3c09b99999cd3 # 客户企业微信id
+  suiteId: dk46b66493c99999eb #代开发模板id
+  suiteSecret: oFTNzQCsEjF3jZva99999_LYqb8Ib37g9Ke7hgUnuXk #代开发模板密钥
+  # 授权后重定向的回调链接地址
+  redirectUri: https://wx.mygallop.cn/pm
