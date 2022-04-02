@@ -112,4 +112,4 @@ server {
 
 3、使用@Cacheable 和 @CacheEvict 对企业微信api返回的token信息进行redis 缓存；
 
-4、由于部分回调地址对企业微信后台触发的相应需要在1000毫秒内（企业微信api文档明确要求），故部分信息要先放队列，后续进行处理，这里使用了redis的队列，注意配置在RedisConfig里，队列消息消费处理在 com.gallop.wechat.service.RedisReceiver 进行处理；
+4、由于部分回调地址对企业微信后台触发的响应需要在1000毫秒内（企业微信api文档明确要求），故部分信息要先放队列，后续进行处理，这里使用了redis的队列，注意配置在RedisConfig里，队列消息消费处理在 com.gallop.wechat.service.RedisReceiver 进行处理；
